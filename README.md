@@ -107,10 +107,10 @@ It’s recommended to plan your architecture early if you intend to add these.
 
 Through this project, I learned to:
 
-✅ Use **variadic functions** with `va_list`
-✅ Manage and format different data types
-✅ Structure modular and maintainable C code
-✅ Work with static libraries using `ar`
+✅ Use **variadic functions** with `va_list` <br>
+✅ Manage and format different data types <br>
+✅ Structure modular and maintainable C code <br>
+✅ Work with static libraries using `ar` <br>
 ✅ Respect strict project constraints and the 42 Norm
 
 ---
