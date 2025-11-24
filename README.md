@@ -1,65 +1,39 @@
-# ft_printf
+# ft_printf – My custom printf implementation
 
-Re-implementation of the famous `printf()` function from the C standard library.
-This project introduces **variadic functions**, formatting rules, and clean modular code architecture — essential foundations for future C projects.
+Welcome to **ft_printf**! 🔧 This project aims to rebuild the famous `printf` function from scratch.
+It’s an opportunity to deepen your understanding of C, explore **variadic functions**, improve your code structure, and learn how real formatting engines work.
 
 ---
 
-## 📌 Introduction
+## 📝 Project Overview
 
-The goal of this project is to code a custom version of `printf()` called **ft_printf()**, mimicking the behavior of the original function while following strict constraints.
-This project teaches:
+**ft_printf** is a custom re-implementation of the standard `printf()` from the C library.
+It supports essential format specifiers, handles variable argument lists, and outputs formatted data without using the original buffering system.
 
-* Handling **variadic arguments**
-* Structuring a **clean, extensible codebase**
-* Working with different **format specifiers**
-* Creating and using a **static library**
-
-Once validated, ft_printf can be added to your **libft** for future use.
+Once validated, the project can be added to your **libft** as a reusable library component for future C projects.
 
 
 ---
 
-## 🛠️ Mandatory Requirements
+## 🔧 Supported Conversions
 
-### Allowed functions
+Your implementation must handle the following format specifiers:
 
-* `malloc`, `free`, `write`
-* `va_start`, `va_arg`, `va_copy`, `va_end`
-
-
-### Prototype
-
-```c
-int ft_printf(const char *format, ...);
-```
-
-### Required behavior
-
-You must support the following **conversions**:
-
-* `%c` – character
-* `%s` – string
-* `%p` – pointer (hexadecimal format)
-* `%d` – signed decimal
-* `%i` – signed integer
-* `%u` – unsigned decimal
-* `%x` – hexadecimal (lowercase)
-* `%X` – hexadecimal (uppercase)
-* `%%` – percent sign
-
-
-### Constraints
-
-* No buffer management like the real printf
-* Must create a `libftprintf.a` static library at the root using `ar` (not libtool)
+* `%c` → Print a single character
+* `%s` → Print a string
+* `%p` → Print a pointer in hexadecimal format
+* `%d`, `%i` → Print signed integers
+* `%u` → Print unsigned integers
+* `%x` → Print lowercase hexadecimal
+* `%X` → Print uppercase hexadecimal
+* `%%` → Print a literal percent sign
 
 
 ---
 
-## 📁 Project Structure
+## 📂 Project Structure
 
-Example recommended structure:
+A clean and modular architecture is recommended:
 
 ```
 ft_printf/
@@ -70,37 +44,36 @@ ft_printf/
 │   ├── ft_print_char.c
 │   ├── ft_print_string.c
 │   ├── ft_print_pointer.c
-│   ├── ft_print_number.c
+│   ├── ft_print_decimal.c
 │   ├── ft_print_unsigned.c
 │   ├── ft_print_hex.c
 │   └── utils.c
-│── libft/ (optional if used)
 ```
 
 ---
 
-## 🚀 Usage
+## 🛠️ Compilation & Usage
 
-### Compilation
+### Compile the library
 
 ```bash
 make
 ```
 
-This produces:
+This generates:
 
 ```
 libftprintf.a
 ```
 
-### Using in your own code
+### Example usage
 
 ```c
 #include "ft_printf.h"
 
 int main()
 {
-    ft_printf("Hello %s\n", "world");
+    ft_printf("Hello %s! Number: %d\n", "world", 42);
     return 0;
 }
 ```
@@ -113,37 +86,47 @@ cc main.c libftprintf.a
 
 ---
 
-## ⭐ Bonus Part (Optional)
+## 🚀 Bonus Features (Optional)
 
-If the **mandatory part is perfect**, you may add:
+If the mandatory part is **100% correct**, bonuses may be added:
 
-### Additional flags
+### Bonus flags
 
-* `-`
-* `0`
-* `.`
+* `-` (left alignment)
+* `0` (zero padding)
+* `.` (precision)
 * minimum field width
 * `# +` (including space)
 
 
-It’s recommended to plan your architecture early if you want to attempt bonuses.
+It’s recommended to plan your architecture early if you intend to add these.
 
 ---
 
-## 🧪 Peer-Evaluation
+## 🎯 Learning Outcomes
 
-During defense:
+Through this project, I learned to:
 
-* You may be asked to modify or add a few lines to test your understanding
-* Your repository is the only reference point — double-check filenames
-
+✅ Use **variadic functions** with `va_list`
+✅ Manage and format different data types
+✅ Structure modular and maintainable C code
+✅ Work with static libraries using `ar`
+✅ Respect strict project constraints and the 42 Norm
 
 ---
 
-## 📚 About AI & Learning (from the subject)
+## 🤝 Contributions
 
-The project emphasizes:
+This project was developed as part of my training at **42 Lyon**.
+Feedback and suggestions are always welcome!
 
-* Building real foundations
-* Avoiding shortcuts from AI
-* Learning reasoning + peer-to-peer method
+---
+
+## 🛡️ License
+
+Created for educational purposes within the 42 curriculum.
+Feel free to explore, reuse, and improve it!
+
+---
+
+✨ Thanks for checking out my ft_printf project! 🚀
