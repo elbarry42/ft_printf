@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:31:29 by elbarry           #+#    #+#             */
-/*   Updated: 2025/11/27 16:34:17 by elbarry          ###   ########.fr       */
+/*   Updated: 2025/11/27 21:48:27 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_printf(const char *format, ...)
 		{
 			i++;
 			if (!format[i])
-				break ;
+				return (-1);
 			count += handle_conversion(format[i], args);
 		}
 		else
