@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utiles.c                                           :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/24 18:40:37 by elbarry           #+#    #+#             */
-/*   Updated: 2025/11/26 18:17:09 by elbarry          ###   ########.fr       */
+/*   Created: 2025/11/27 11:41:46 by elbarry           #+#    #+#             */
+/*   Updated: 2025/11/27 13:47:08 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-int	ft_strlen(const char *s)
+int	ft_putptr_hex(unsigned long n)
 {
-	int	i;
+	int		count;
+	char	*base;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	base = "0123456789abcdef";
+	count = 0;
+	if (n >= 16)
+		count += ft_putptr_hex(n / 16);
+	count += ft_putchar(base[n % 16]);
+	return (count);
 }
 
-
-
-void	ft_putnbr_unsigned(unsigned int n)
+int	ft_putptr(unsigned long ptr)
 {
-	if (n < 0)
-	{
-		n = -n;
-		ft_putchar('-');
-	}
-	if (n < 10)
-		ft_putchar(n + 48);
+	int	count;
+
+	count = 0;
+	if (ptr == 0)
+		count += ft_putstr("(nil)");
 	else
 	{
-		ft_putnbr(n / 10);
-		ft_putchar((n % 10) + 48);
+		count += ft_putstr("0x");
+		count += ft_putptr_hex(ptr);
 	}
+	return (count);
 }

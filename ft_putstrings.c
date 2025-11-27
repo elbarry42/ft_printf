@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:05:05 by elbarry           #+#    #+#             */
-/*   Updated: 2025/11/26 19:07:15 by elbarry          ###   ########.fr       */
+/*   Updated: 2025/11/27 16:30:49 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ int	ft_putstr(char *s)
 	int	len;
 
 	if (!s)
-	{
-		write(2, "null", 4);
-		return (4);
-	}
+		return (ft_putstr("(null)"));
 	len = 0;
 	while (s[len])
 	{
