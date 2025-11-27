@@ -1,5 +1,11 @@
 # ft_printf – My custom printf implementation
 
+<div align="center">
+
+<a href="https://github.com/elbarry42/ft_printf">![42 Badge](https://github.com/elbarry42/elbarry42/blob/main/42_badges/ft_printfe.png)</a>
+
+</div>
+
 Welcome to **ft_printf**! 🔧 This project aims to rebuild the famous `printf` function from scratch.
 It’s an opportunity to deepen your understanding of C, explore **variadic functions**, improve your code structure, and learn how real formatting engines work.
 
