@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<a href="https://github.com/elbarry42/ft_printf">![42 Badge](https://github.com/elbarry42/elbarry42/blob/main/42_badges/ft_printfe.png)</a>
+<a>![42 Badge](https://github.com/elbarry42/elbarry42/blob/main/42_badges/ft_printfe.png)</a>
 
 </div>
 
