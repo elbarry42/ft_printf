@@ -1,5 +1,11 @@
 # ft_printf – Custom printf implementation
 
+<div align="center">
+
+<a href="https://github.com/elbarry42/ft_printf">![42 Badge](https://github.com/elbarry42/elbarry42/blob/main/42_badges/ft_printfe.png)</a>
+
+</div>
+
 Welcome to **ft_printf** 🔧
 This project is a custom reimplementation of the standard C library function `printf()`, developed as part of the **42 curriculum**.
 
