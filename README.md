@@ -1,45 +1,40 @@
-# ft_printf – My custom printf implementation
+# ft_printf – Custom printf implementation
 
-<div align="center">
+Welcome to **ft_printf** 🔧
+This project is a custom reimplementation of the standard C library function `printf()`, developed as part of the **42 curriculum**.
 
-<a>![42 Badge](https://github.com/elbarry42/elbarry42/blob/main/42_badges/ft_printfe.png)</a>
-
-</div>
-
-Welcome to **ft_printf**! 🔧 This project aims to rebuild the famous `printf` function from scratch.
-It’s an opportunity to deepen your understanding of C, explore **variadic functions**, improve your code structure, and learn how real formatting engines work.
+The goal is to reproduce the core behavior of `printf` while respecting strict constraints, using **variadic functions** and without relying on the original C library implementation.
 
 ---
 
 ## 📝 Project Overview
 
-**ft_printf** is a custom re-implementation of the standard `printf()` from the C library.
-It supports essential format specifiers, handles variable argument lists, and outputs formatted data without using the original buffering system.
+**ft_printf** recreates formatted output handling in C.
+It processes format strings, handles variable arguments, and prints formatted data directly to standard output using `write()`.
 
-Once validated, the project can be added to your **libft** as a reusable library component for future C projects.
-
+Once validated, this library can be reused in future 42 projects or integrated into **libft**.
 
 ---
 
-## 🔧 Supported Conversions
+## 🔧 Supported Conversions (Mandatory Part)
 
-Your implementation must handle the following format specifiers:
+The following format specifiers are implemented:
 
 * `%c` → Print a single character
 * `%s` → Print a string
 * `%p` → Print a pointer in hexadecimal format
-* `%d`, `%i` → Print signed integers
-* `%u` → Print unsigned integers
-* `%x` → Print lowercase hexadecimal
-* `%X` → Print uppercase hexadecimal
+* `%d` → Print a signed decimal number
+* `%i` → Print a signed integer
+* `%u` → Print an unsigned decimal number
+* `%x` → Print a hexadecimal number (lowercase)
+* `%X` → Print a hexadecimal number (uppercase)
 * `%%` → Print a literal percent sign
 
+All conversions behave like the original `printf()`.
 
 ---
 
 ## 📂 Project Structure
-
-A clean and modular architecture is recommended:
 
 ```
 ft_printf/
@@ -48,14 +43,17 @@ ft_printf/
 │── ft_printf.c
 │── ft_putstrings.c
 │── ft_putnbrs.c
-├── ft_putptr.c
+│── ft_putptr.c
 ```
+
+* `ft_printf.c` handles parsing and variadic arguments
+* Helper files manage strings, numbers, hexadecimals, and pointers
 
 ---
 
-## 🛠️ Compilation & Usage
+## 🛠️ Compilation
 
-### Compile the library
+Compile the static library using:
 
 ```bash
 make
@@ -63,19 +61,32 @@ make
 
 This generates:
 
-```
+```bash
 libftprintf.a
 ```
 
-### Example usage
+Available Makefile rules:
+
+```bash
+make
+make clean
+make fclean
+make re
+```
+
+The Makefile uses `cc` with `-Wall -Wextra -Werror` and avoids unnecessary relinking.
+
+---
+
+## 🚀 Usage Example
 
 ```c
 #include "ft_printf.h"
 
-int main()
+int main(void)
 {
     ft_printf("Hello %s! Number: %d\n", "world", 42);
-    return 0;
+    return (0);
 }
 ```
 
@@ -87,20 +98,20 @@ cc main.c libftprintf.a
 
 ---
 
-## 🚀 Bonus Features (Optional)
+## ⚙️ Implementation Details
 
-If the mandatory part is **100% correct**, bonuses may be added:
+* Uses **variadic functions** (`va_list`, `va_arg`, `va_start`, `va_end`)
+* Direct output with `write()` (no buffering)
+* Recursive helpers for numeric conversions
+* `%p` prints pointers in hexadecimal with the `0x` prefix
+* Every function returns the number of printed characters
 
-### Bonus flags
+---
 
-* `-` (left alignment)
-* `0` (zero padding)
-* `.` (precision)
-* minimum field width
-* `# +` (including space)
+## 🚀 Bonus Part
 
-
-It’s recommended to plan your architecture early if you intend to add these.
+Bonus features such as flags (`-`, `0`, `.`, width, `#`, `+`, space) are **not implemented**.
+This project focuses on a **fully correct mandatory part**, as required for validation.
 
 ---
 
@@ -108,26 +119,27 @@ It’s recommended to plan your architecture early if you intend to add these.
 
 Through this project, I learned to:
 
-✅ Use **variadic functions** with `va_list` <br>
-✅ Manage and format different data types <br>
-✅ Structure modular and maintainable C code <br>
-✅ Work with static libraries using `ar` <br>
-✅ Respect strict project constraints and the 42 Norm
+* Work with **variadic arguments** in C
+* Reproduce standard library behavior
+* Manage formatted output manually
+* Build and use static libraries
+* Write clean, modular, and norm-compliant code
 
 ---
 
-## 🤝 Contributions
+## 📚 Resources
 
-This project was developed as part of my training at **42 Lyon**.
-Feedback and suggestions are always welcome!
+* `man printf`
+* GNU C Library documentation
+* `stdarg.h` (variadic functions)
 
 ---
 
 ## 🛡️ License
 
-Created for educational purposes within the 42 curriculum.
-Feel free to explore, reuse, and improve it!
+This project was developed for educational purposes as part of the **42 curriculum**.
+Free to explore, study, and improve.
 
 ---
 
-✨ Thanks for checking out my ft_printf project! 🚀
+✨ Thanks for checking out my **ft_printf** project!
